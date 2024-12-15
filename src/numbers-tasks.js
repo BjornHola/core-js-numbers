@@ -1,16 +1,17 @@
 const testOptional = require("../extensions/it-optional");
+
 function getRectangleArea(width, height) {
   return width * height
 }
 console.log(getRectangleArea(5, 10));
 console.log(getRectangleArea(5, 5));
 
-let circumference = function getCircumference(radius) {
+function getCircumference(radius) {
   return 2 * Math.PI * radius;
 };
-console.log(circumference(5));
-console.log(circumference(3.14));
-console.log(circumference(0));
+console.log(getCircumference(5));
+console.log(getCircumference(3.14));
+console.log(getCircumference(0));
 
 function getAverage(number1, number2) {
   return (number1 + number2) / 2;
@@ -19,41 +20,22 @@ console.log(getAverage(5, 5));
 console.log(getAverage(10, 0));
 console.log(getAverage(-3, 3));
 
-
-/**
- * Returns a distance between two points by cartesian coordinates.
- *
- * @param {number} x1
- * @param {number} y1
- * @param {number} x2
- * @param {number} y2
- *
- * @return {number}
- *
- * @example:
- *   (0,0) (0,1)    => 1
- *   (0,0) (1,0)    => 1
- *   (-5,0) (10,-10) => 18.027756377319946
- */
-function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getDistanceBetweenPoints(x1, y1, x2, y2) {
+  return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2))
 }
+console.log(getDistanceBetweenPoints(0, 0, 0, 1));
+console.log(getDistanceBetweenPoints(0, 0, 1, 0));
+console.log(getDistanceBetweenPoints(-5, 0, 10, -10));
 
-/**
- * Returns a root of linear equation a*x + b = 0 given by coefficients a and b.
- *
- * @param {number} a
- * @param {number} b
- * @return {number}
- *
- * @example:
- *   5*x - 10 = 0    => 2
- *   x + 8 = 0       => -8
- *   5*x = 0         => 0
- */
-function getLinearEquationRoot(/* a, b */) {
-  throw new Error('Not implemented');
+function getLinearEquationRoot(a, b) {
+  if (a === 0) { console.log("Коэффициент 'a' не может быть равен нулю."); }
+ return -b / a;
 }
+console.log(getLinearEquationRoot(5, 10));
+console.log(getLinearEquationRoot(1, -8));
+console.log(getLinearEquationRoot(5, 0));
+
+
 
 /**
  * Returns an angle (in radians) between two vectors given by xi and yi,
