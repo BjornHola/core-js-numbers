@@ -1,57 +1,24 @@
-/* *******************************************************************************************
- *                                                                                           *
- * Please read the following tutorial before implementing tasks:                              *
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Numbers_and_dates           *
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number   *
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math     *
- *                                                                                           *
- ******************************************************************************************* */
-
-/**
- * Returns an area of a rectangle given by width and height.
- *
- * @param {number} width
- * @param {number} height
- * @return {number}
- *
- * @example:
- *   5, 10 => 50
- *   5, 5  => 25
- */
-function getRectangleArea(/* width, height */) {
-  throw new Error('Not implemented');
+const testOptional = require("../extensions/it-optional");
+function getRectangleArea(width, height) {
+  return width * height
 }
+console.log(getRectangleArea(5, 10));
+console.log(getRectangleArea(5, 5));
 
-/**
- * Returns a circumference of circle given by radius.
- *
- * @param {number} radius
- * @return {number}
- *
- * @example:
- *   5    => 31.41592653589793
- *   3.14 => 19.729201864543903
- *   0    => 0
- */
-function getCircleCircumference(/* radius */) {
-  throw new Error('Not implemented');
-}
+let circumference = function getCircumference(radius) {
+  return 2 * Math.PI * radius;
+};
+console.log(circumference(5));
+console.log(circumference(3.14));
+console.log(circumference(0));
 
-/**
- * Returns an average of two given numbers.
- *
- * @param {number} value1
- * @param {number} value2
- * @return {number}
- *
- * @example:
- *   5, 5  => 5
- *  10, 0  => 5
- *  -3, 3  => 0
- */
-function getAverage(/* value1, value2 */) {
-  throw new Error('Not implemented');
+function getAverage(number1, number2) {
+  return (number1 + number2) / 2;
 }
+console.log(getAverage(5, 5));
+console.log(getAverage(10, 0));
+console.log(getAverage(-3, 3));
+
 
 /**
  * Returns a distance between two points by cartesian coordinates.
