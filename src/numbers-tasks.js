@@ -37,43 +37,24 @@ console.log(getLinearEquationRoot(5, 0));
 
 
 
-/**
- * Returns an angle (in radians) between two vectors given by xi and yi,
- * coordinates in Cartesian plane.
- * See details https://en.wikipedia.org/wiki/Euclidean_vector#Representations
- *
- * @param {number} x1
- * @param {number} y1
- * @param {number} x2
- * @param {number} y2
- * @return {number}
- *
- * @example:
- *   (1,0) (0,1)     => π/2
- *   (0,1) (0,-1)    => π
- *   (0,-1) (1,0)    => π/2
- *   (0,1) (0,1)     => 0
- */
-function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getMultiplyBetweenCoordinates(x1, y1, x2, y2) {
+  return x1 * x2 + y1 * y2;
 }
+let multiplyCoord = getMultiplyBetweenCoordinates(1, 0, 0, 1);
+let x1 = 1, y1 = 0, x2 = 0, y2 = 1;
+let dotA = Math.sqrt(Math.pow(x1, 2) + Math.pow(y1, 2));
+let dotB = Math.sqrt(Math.pow(x2, 2) + Math.pow(y2, 2));
+function getAcosAngle(multiply, dotA, dotB){
+  return Math.acos(multiply / (dotA * dotB));
+}
+console.log(getAcosAngle(multiplyCoord, dotA, dotB));
 
-/**
- * Returns a last digit of a integer number.
- * The input parameter will always be greater than or equal to zero and will be in decimal notation.
- *
- * @param {number} value
- * @return {number}
- *
- * @example:
- *   100     => 0
- *    37     => 7
- *     5     => 5
- *     0     => 0
- */
-function getLastDigit(/* value */) {
-  throw new Error('Not implemented');
+
+function getLastDigit(inputNumber){
+   return inputNumber % 10;
 }
+console.log(getLastDigit(100));
+
 
 /**
  * Returns a number by given string representation.
