@@ -96,43 +96,41 @@ function isPrime(num){
  console.log(isPrime(17));
 
 
-
-
-/**
- * Tries to convert value to number and returns it if conversion was successful;
- * otherwise returns default value passed as a second argument.
- *
- * @param {any} value
- * @param {any} def
- * @return {number}
- *
- * @example
- *   toNumber(null, 0) => 0
- *   toNumber('test', 0) => 0
- *   toNumber('1', 0) => 1
- *   toNumber(42, 0) => 42
- *   toNumber(new Number(42), 0) => 42
- */
-function toNumber(/* value, def */) {
-  throw new Error('Not implemented');
+function toNumber(value, def) {
+  let num = Number(value);
+  return isNaN(num) ? def : num;
 }
+console.log(toNumber(null, 0));
+console.log(toNumber('test', 0));
+console.log(toNumber('1', 0));
+console.log(toNumber(new Number(42), 0));
 
-/**
- * Returns the cube of the given number.
- *
- * @param {number} num
- * @return {number}
- *
- * @example:
- *   3  => 27
- *   -2 => -8
- *   0  => 0
- */
-function getCube(/* num */) {
-  throw new Error('Not implemented');
+function getCube(num){
+  return Math.pow(num, 3);
 }
+console.log(getCube(3));
+console.log(getCube(-2));
+console.log(getCube(0));
 
-/**
+function getFibonacciNumber(index) {
+  if (index === 0)
+    return 0;
+  if (index === 1)
+    return 1;
+  let a = 0, b = 1, temp;
+  for (let i = 2; i <= index; i++) {
+    temp = a + b;
+    a = b;
+    b = temp;
+  }
+  return b;
+ }
+console.log(getFibonacciNumber(0));
+console.log(getFibonacciNumber(1));
+console.log(getFibonacciNumber(2));
+console.log(getFibonacciNumber(3));
+console.log(getFibonacciNumber(10));
+
  * Returns the Fibonacci number located at the index position.
  *
  * @param {number} index
