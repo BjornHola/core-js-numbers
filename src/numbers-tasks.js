@@ -55,80 +55,48 @@ function getLastDigit(inputNumber){
 }
 console.log(getLastDigit(100));
 
-
-/**
- * Returns a number by given string representation.
- *
- * @param {string} value
- * @return {number}
- *
- * @example:
- *    '100'     => 100
- *     '37'     => 37
- * '-525.5'     => -525.5
- */
-function parseNumberFromString(/* value */) {
-  throw new Error('Not implemented');
+function getDiagonalOfParallelepiped(a, b, c){
+return Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2) + Math.pow(c, 2));
 }
+console.log(getDiagonalOfParallelepiped(1, 1, 1));
+console.log(getDiagonalOfParallelepiped(3, 3, 3));
+console.log(getDiagonalOfParallelepiped(1, 2, 3));
 
-/**
- * Returns a diagonal length of the rectangular parallelepiped given by its sides a,b,c.
- *
- * @param {number} a
- * @param {number} b
- * @param {number} c
- * @return {number}
- *
- * @example:
- *   1,1,1   => 1.7320508075688772
- *   3,3,3   => 5.196152422706632
- *   1,2,3   => 3.741657386773941
- */
-function getParallelepipedDiagonal(/* a, b, c */) {
-  throw new Error('Not implemented');
-}
 
-/**
- * Returns the number rounded to specified power of 10.
- *
- * @param {number} num
- * @param {number} pow
- * @return {number}
- *
- * @example:
- *   1234, 0  => 1234
- *   1234, 1  => 1230
- *   1234, 2  => 1200
- *   1234, 3  => 1000
- *   1678, 0  => 1678
- *   1678, 1  => 1680
- *   1678, 2  => 1700
- *   1678, 3  => 2000
- */
-function roundToPowerOfTen(/* num, pow */) {
-  throw new Error('Not implemented');
+function roundToPowerOfTen(num, pow) {
+ const a = Math.pow(10, pow);
+ return Math.round(num / a) * a;
 }
+console.log(roundToPowerOfTen(1234, 0));
+console.log(roundToPowerOfTen(1234, 1));
+console.log(roundToPowerOfTen(1234, 2));
+console.log(roundToPowerOfTen(1234, 3));
+console.log(roundToPowerOfTen(1678, 0));
+console.log(roundToPowerOfTen(1678, 1));
+console.log(roundToPowerOfTen(1678, 2));
+console.log(roundToPowerOfTen(1678, 3));
 
-/**
- * Returns true is the number is prime; otherwise false.
- * See: https://en.wikipedia.org/wiki/Primality_test
- *
- * @param {number} n
- * @return {bool}
- *
- * @example:
- *   4 => false
- *   5 => true
- *   6 => false
- *   7 => true
- *   11 => true
- *   12 => false
- *   16 => false
- *   17 => true
- */
-function isPrime(/* n */) {
-  throw new Error('Not implemented');
+function isPrime(num){
+  if (num <= 1)
+    return false;
+  if (num <= 3)
+    return true;
+  if (num % 2 === 0 || num % 3 === 0)
+    return false;
+  for (let num = 5; Math.pow(num, num - 1 === 1); num++)
+    return true
 }
+ console.log(isPrime(4));
+ console.log(isPrime(5));
+ console.log(isPrime(6));
+ console.log(isPrime(7));
+ console.log(isPrime(1));
+ console.log(isPrime(12));
+ console.log(isPrime(16));
+ console.log(isPrime(17));
+
+
+
 
 /**
  * Tries to convert value to number and returns it if conversion was successful;
