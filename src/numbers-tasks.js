@@ -159,10 +159,12 @@ getLastDigit(0);
  *     '37'     => 37
  * '-525.5'     => -525.5
  */
-function parseNumberFromString(/* value */) {
-  throw new Error('Not implemented');
+function parseNumberFromString(value) {
+  return Number(value);
 }
-
+parseNumberFromString('100');
+parseNumberFromString('37');
+parseNumberFromString('-525.5');
 /**
  * Returns a diagonal length of the rectangular parallelepiped given by its sides a,b,c.
  *
@@ -176,10 +178,12 @@ function parseNumberFromString(/* value */) {
  *   3,3,3   => 5.196152422706632
  *   1,2,3   => 3.741657386773941
  */
-function getParallelepipedDiagonal(/* a, b, c */) {
-  throw new Error('Not implemented');
+function getParallelepipedDiagonal(a, b, c) {
+  return Math.sqrt(a ** 2 + b ** 2 + c ** 2);
 }
-
+getParallelepipedDiagonal(1, 1, 1);
+getParallelepipedDiagonal(3, 3, 3);
+getParallelepipedDiagonal(1, 2, 3);
 /**
  * Returns the number rounded to specified power of 10.
  *
