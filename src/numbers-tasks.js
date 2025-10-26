@@ -18,10 +18,11 @@
  *   5, 10 => 50
  *   5, 5  => 25
  */
-function getRectangleArea(/* width, height */) {
-  throw new Error('Not implemented');
+function getRectangleArea(width, height) {
+  return width * height;
 }
-
+getRectangleArea(5, 10);
+getRectangleArea(5, 5);
 /**
  * Returns a circumference of circle given by radius.
  *
@@ -33,9 +34,12 @@ function getRectangleArea(/* width, height */) {
  *   3.14 => 19.729201864543903
  *   0    => 0
  */
-function getCircleCircumference(/* radius */) {
-  throw new Error('Not implemented');
+function getCircleCircumference(radius) {
+  return 2 * Math.PI * radius;
 }
+getCircleCircumference(5);
+getCircleCircumference(3.14);
+getCircleCircumference(0);
 
 /**
  * Returns an average of two given numbers.
@@ -49,10 +53,12 @@ function getCircleCircumference(/* radius */) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage(/* value1, value2 */) {
-  throw new Error('Not implemented');
+function getAverage(value1, value2) {
+  return value1 / 2 + value2 / 2;
 }
-
+getAverage(5, 5);
+getAverage(10, 0);
+getAverage(-3, 3);
 /**
  * Returns a distance between two points by cartesian coordinates.
  *
@@ -67,10 +73,12 @@ function getAverage(/* value1, value2 */) {
  *   (0,0) (1,0)    => 1
  *   (-5,0) (10,-10) => 18.027756377319946
  */
-function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getDistanceBetweenPoints(x1, y1, x2, y2) {
+  return Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
 }
-
+getDistanceBetweenPoints(0, 0, 0, 1);
+getDistanceBetweenPoints(0, 0, 1, 0);
+getDistanceBetweenPoints(-5, 0, 10, -10);
 /**
  * Returns a root of linear equation a*x + b = 0 given by coefficients a and b.
  *
@@ -83,10 +91,13 @@ function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
  *   x + 8 = 0       => -8
  *   5*x = 0         => 0
  */
-function getLinearEquationRoot(/* a, b */) {
-  throw new Error('Not implemented');
+function getLinearEquationRoot(a, b) {
+  if (a === 0) return 'a could not be 0';
+  return -b / a;
 }
-
+getLinearEquationRoot(5, 10);
+getLinearEquationRoot(1, -8);
+getLinearEquationRoot(5, 0);
 /**
  * Returns an angle (in radians) between two vectors given by xi and yi,
  * coordinates in Cartesian plane.
@@ -104,10 +115,19 @@ function getLinearEquationRoot(/* a, b */) {
  *   (0,-1) (1,0)    => π/2
  *   (0,1) (0,1)     => 0
  */
-function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getAngleBetweenVectors(x1, y1, x2, y2) {
+  const dotProduct = x1 * x2 + y1 * y2;
+  const magnitudeA = Math.hypot(x1, y1);
+  const magnitudeB = Math.hypot(x2, y2);
+  if (magnitudeA === 0 || magnitudeB === 0) return NaN;
+  const cosTheta = dotProduct / (magnitudeA * magnitudeB);
+  const clamped = Math.min(1, Math.max(-1, cosTheta));
+  return Math.acos(clamped);
 }
-
+getAngleBetweenVectors(1, 0, 0, 1);
+getAngleBetweenVectors(0, 1, 0, -1);
+getAngleBetweenVectors(0, -1, 1, 0);
+getAngleBetweenVectors(0, 1, 0, 1);
 /**
  * Returns a last digit of a integer number.
  * The input parameter will always be greater than or equal to zero and will be in decimal notation.
@@ -121,10 +141,13 @@ function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
  *     5     => 5
  *     0     => 0
  */
-function getLastDigit(/* value */) {
-  throw new Error('Not implemented');
+function getLastDigit(value) {
+  return value % 10;
 }
-
+getLastDigit(100);
+getLastDigit(37);
+getLastDigit(5);
+getLastDigit(0);
 /**
  * Returns a number by given string representation.
  *
