@@ -251,9 +251,11 @@ isPrime(4);
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* value, def */) {
-  throw new Error('Not implemented');
+function toNumber(value, def) {
+  const num = Number(value);
+  return Number.isNaN(num) ? def : num;
 }
+toNumber(null, 0);
 
 /**
  * Returns the cube of the given number.
@@ -266,10 +268,10 @@ function toNumber(/* value, def */) {
  *   -2 => -8
  *   0  => 0
  */
-function getCube(/* num */) {
-  throw new Error('Not implemented');
+function getCube(num) {
+  return num ** 3;
 }
-
+getCube(3);
 /**
  * Returns the Fibonacci number located at the index position.
  *
