@@ -401,10 +401,13 @@ numberToStringInBase(255, 16);
  * @example:
  * 12345, 2    => '1.23e+4'
  */
-function toExponential(/* number, fractionDigits */) {
-  throw new Error('Not implemented');
+function toExponential(number, fractionDigits) {
+  if (typeof number !== 'number' || typeof fractionDigits !== 'number') {
+    throw new TypeError('Both arguments must be numbers');
+  }
+  return number.toExponential(fractionDigits);
 }
-
+toExponential(12345, 2);
 /**
  * Returns a string representation of a number in fixed-point notation.
  *
@@ -416,9 +419,13 @@ function toExponential(/* number, fractionDigits */) {
  * 12345, 2    => '12345.00'
  * 12.345, 1   => '12.3'
  */
-function toFixed(/* number, fractionDigits */) {
-  throw new Error('Not implemented');
+function toFixed(number, fractionDigits) {
+  if (typeof number !== 'number' || typeof fractionDigits !== 'number') {
+    throw new TypeError('Both arguments must be numbers');
+  }
+  return number.toFixed(fractionDigits);
 }
+toFixed(12345, 2);
 
 /**
  * Returns a string representation of a number in normal (fixed-point or exponential)
@@ -432,9 +439,13 @@ function toFixed(/* number, fractionDigits */) {
  * 12345, 7    => '12345.00'
  * 12.345, 4   => '12.35'
  */
-function toPrecision(/* number, precision */) {
-  throw new Error('Not implemented');
+function toPrecision(number, precision) {
+  if (typeof number !== 'number' || typeof precision !== 'number') {
+    throw new TypeError('Both arguments must be numbers');
+  }
+  return number.toPrecision(precision);
 }
+toPrecision(12345, 7);
 
 /**
  * Returns the primitive value of a Number object.
@@ -446,10 +457,10 @@ function toPrecision(/* number, precision */) {
  * new Number(5) => 5
  * Number(-5)    => -5
  */
-function getNumberValue(/* number */) {
-  throw new Error('Not implemented');
+function getNumberValue(number) {
+  return number.valueOf();
 }
-
+getNumberValue(Number(-5));
 /**
  * Returns a boolean value indicating whether the parameter is a number or not.
  *
