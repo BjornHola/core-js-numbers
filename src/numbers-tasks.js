@@ -329,10 +329,14 @@ getSumToN(5);
  *   202 => 4  // (2+0+2)
  *   5   => 5  // 5
  */
-function getSumOfDigits(/* num */) {
-  throw new Error('Not implemented');
+function getSumOfDigits(num) {
+  const disassembled = num.toString().split('');
+  const result = disassembled.reduce((acc, char) => {
+    return acc + Number(char);
+  }, 0);
+  return result;
 }
-
+getSumOfDigits(123);
 /**
  * Returns true if the given number is a power of two, false otherwise.
  *
@@ -344,9 +348,15 @@ function getSumOfDigits(/* num */) {
  *   16  => true
  *   15  => false
  */
-function isPowerOfTwo(/* num */) {
-  throw new Error('Not implemented');
+function isPowerOfTwo(num) {
+  let n = num;
+  if (n < 1) return false;
+  while (n % 2 === 0) {
+    n /= 2;
+  }
+  return n === 1;
 }
+isPowerOfTwo(4);
 
 /**
  * Returns the sine of a number.
