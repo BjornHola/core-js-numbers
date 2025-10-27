@@ -368,10 +368,10 @@ isPowerOfTwo(4);
  *   0 => 0
  *   Math.PI / 2 => 1
  */
-function getSine(/* num */) {
-  throw new Error('Not implemented');
+function getSine(num) {
+  return Math.sin(num);
 }
-
+getSine(0);
 /**
  * Returns a string representation of a number in a specified base (radix).
  *
@@ -383,9 +383,13 @@ function getSine(/* num */) {
  * 255, 16 => 'ff'
  * 2, 2    => '10'
  */
-function numberToStringInBase(/* number, base */) {
-  throw new Error('Not implemented');
+function numberToStringInBase(number, base) {
+  if (typeof number !== 'number' || typeof base !== 'number') {
+    throw new TypeError('Both arguments must be numbers');
+  }
+  return number.toString(base);
 }
+numberToStringInBase(255, 16);
 
 /**
  * Returns a string representation of a number in exponential notation.
