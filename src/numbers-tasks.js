@@ -285,10 +285,20 @@ getCube(3);
  *   3  => 2
  *   10 => 55
  */
-function getFibonacciNumber(/* index */) {
-  throw new Error('Not implemented');
+function getFibonacciNumber(index) {
+  if (index === 0) return 0;
+  if (index === 1) return 1;
+  let a = 0;
+  let b = 1;
+  let temp;
+  for (let i = 2; i <= index; i += 1) {
+    temp = a + b;
+    a = b;
+    b = temp;
+  }
+  return b;
 }
-
+getFibonacciNumber(0);
 /**
  * Returns the sum of all numbers from 1 to n.
  *
@@ -300,10 +310,14 @@ function getFibonacciNumber(/* index */) {
  *   10 => 55 // (1+2+3+...+10)
  *   1  => 1
  */
-function getSumToN(/* n */) {
-  throw new Error('Not implemented');
+function getSumToN(n) {
+  let sum = 0;
+  for (let i = 1; i <= n; i += 1) {
+    sum += i;
+  }
+  return sum;
 }
-
+getSumToN(5);
 /**
  * Returns the sum of the digits of a given number.
  *
