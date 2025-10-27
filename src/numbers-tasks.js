@@ -476,10 +476,10 @@ getNumberValue(Number(-5));
  * 5        => true
  * '5'      => false
  */
-function isNumber(/* number */) {
-  throw new Error('Not implemented');
+function isNumber(number) {
+  return typeof number === 'number' && Number.isFinite(number);
 }
-
+isNumber(Infinity);
 /**
  * Returns a boolean value indicating whether a number is an integer or not.
  *
@@ -491,9 +491,10 @@ function isNumber(/* number */) {
  * 5.1  => false
  * '5'  => false
  */
-function isInteger(/* number */) {
-  throw new Error('Not implemented');
+function isInteger(number) {
+  return Number.isInteger(number);
 }
+isInteger(5);
 
 /**
  * Returns a floating point number or, if the number cannot be parsed from the argument, returns NaN.
@@ -505,9 +506,11 @@ function isInteger(/* number */) {
  * '4.567abcdefgh' => 4.567
  * 'abcdefgh'      => NaN
  */
-function getFloatOnString(/* str */) {
-  throw new Error('Not implemented');
+function getFloatOnString(str) {
+  return Number.parseFloat(str) ? Number.parseFloat(str) : NaN;
 }
+getFloatOnString('4.567abcdefgh');
+getFloatOnString('abcdefgh');
 
 /**
  * Returns an integer of the specified base or, if the number cannot be parsed
@@ -523,9 +526,10 @@ function getFloatOnString(/* str */) {
  * '1.234', 2           => 1
  * '10', 8              => 8
  */
-function getIntegerOnString(/* str, base */) {
-  throw new Error('Not implemented');
+function getIntegerOnString(str, base) {
+  return Number.parseInt(str, base) ? Number.parseInt(str, base) : NaN;
 }
+getIntegerOnString('4.567abcdefgh', 10);
 
 /**
  * Returns whether a number is a safe integer.
@@ -538,9 +542,10 @@ function getIntegerOnString(/* str, base */) {
  * 3.5      => false
  * 2 ** 53  => false
  */
-function isSafeInteger(/* number */) {
-  throw new Error('Not implemented');
+function isSafeInteger(number) {
+  return !!Number.isSafeInteger(number);
 }
+isSafeInteger(10);
 
 /**
  * Returns the smallest integer less than or equal to a given number.
@@ -552,9 +557,10 @@ function isSafeInteger(/* number */) {
  * 5.9  => 5
  * -5.1 => -6
  */
-function roundToSmallestInteger(/* number */) {
-  throw new Error('Not implemented');
+function roundToSmallestInteger(number) {
+  return Math.floor(number);
 }
+roundToSmallestInteger(5.9);
 
 /**
  * Returns the largest integer greater than or equal to a given number.
